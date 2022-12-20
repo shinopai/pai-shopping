@@ -1,0 +1,36 @@
+<header class="header">
+  <div class="wrap">
+    <div class="header__inner flex">
+      <div class="header__item--before flex">
+        <%= link_to root_path, class: 'contents' do %>
+        <h1 class="header__logo">
+          <%= image_tag 'logo_site.webp' %>
+        </h1>
+        <% end %>
+        <form action="" method="get" class="header__form flex">
+          <input type="text" name="" id="" class="header__form-input">
+          <input type="submit" value="" class="header__form-input--submit">
+        </form>
+      </div>
+      <div class="header__item--after">
+        <ul class="header__list flex">
+          <% if user_signed_in? %>
+          <li class="header__list-item mypage">
+            <%= link_to 'マイページ', '#', class: 'header__link' %>
+          </li>
+          <li class="header__list-item">
+            <%= link_to 'お気に入り', '#', class: 'header__link' %>
+          </li>
+          <% else %>
+          <li class="header__list-item">
+            <%= link_to '新規登録', new_user_registration_path, class: 'header__link' %>
+          </li>
+          <li class="header__list-item">
+            <%= link_to 'ログイン', new_user_session_path, class: 'header__link' %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

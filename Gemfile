@@ -93,3 +93,6 @@ gem 'faker'
 
 # make rails console easy to see
 gem 'pry-rails'
+
+# management screen
+gem 'activeadmin'

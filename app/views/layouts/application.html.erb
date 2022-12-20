@@ -8,10 +8,13 @@
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 </head>
 
 <body>
+  <!-- header -->
+  <%= render 'shared/header' %>
+
   <% if notice %>
   <p class="notice"><%= notice %></p>
   <% end %>
@@ -20,6 +23,9 @@
   <% end %>
 
   <%= yield %>
+
+  <!-- footer -->
+  <%= render 'shared/footer' %>
 </body>
 
 </html>

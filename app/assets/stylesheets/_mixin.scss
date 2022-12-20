@@ -1,0 +1,58 @@
+/* media query */
+@mixin mq($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+/* font weight */
+@mixin fw($font-weight: 400) {
+  font-weight: $font-weight;
+}
+
+/* font size 12px */
+@mixin fs-12 {
+  font-size: clamp(1rem, 0.927rem + 0.36vw, 1.2rem);
+}
+
+/* font size 14px */
+@mixin fs-14 {
+  font-size: clamp(1.2rem, 1.127rem + 0.36vw, 1.4rem);
+}
+
+/* font size 15px */
+@mixin fs-15 {
+  font-size: clamp(1.3rem, 1.227rem + 0.36vw, 1.5rem);
+}
+
+/* font size 20px */
+@mixin fs-20 {
+  font-size: clamp(1.8rem, 1.727rem + 0.36vw, 2rem);
+}
+
+/* section heading */
+@mixin sect-heading {
+  @include fs-20;
+  @include fw(700);
+  margin-top: 0;
+}
+
+/* hover */
+@mixin set-hover {
+  &:hover {
+    @content;
+  }
+}
+
+/* before */
+@mixin set-before($bg-image) {
+  position: relative;
+  &::before {
+    content: "";
+    background: url($bg-image) no-repeat;
+    background-size: contain;
+    display: inline-block;
+    position: absolute;
+    @content;
+  }
+}

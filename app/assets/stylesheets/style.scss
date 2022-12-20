@@ -1,0 +1,77 @@
+@import "_basic";
+@import "_mixin";
+
+/* item list */
+.list {
+  column-gap: 15px;
+  &__item {
+    img {
+      border: 1px solid #e3e2e2;
+      padding: 5px;
+    }
+    figcaption {
+      @include fs-15;
+      margin-top: 10px;
+    }
+    p {
+      @include fs-15;
+      @include fw(700);
+      margin: 0;
+    }
+  }
+  &.new {
+    row-gap: 20px;
+    .list__item {
+      width: 23.5%;
+    }
+  }
+}
+
+/* login and register form */
+.form {
+  width: min(45%, 550px);
+  margin: 30px auto 0;
+  &__heading {
+    @include fs-20;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $color-gray;
+  }
+  &__item {
+    margin-top: 20px;
+    &:first-of-type {
+      margin-top: 30px;
+    }
+  }
+  &__label {
+    @include fs-14;
+  }
+  &__input {
+    @include fs-14;
+    width: 100%;
+    padding: 5px 15px;
+    &--submit {
+      @include fs-14;
+      @include fw(700);
+      @include set-hover {
+        opacity: 0.8;
+      }
+      background-color: $color-green;
+      padding: 5px 0;
+      cursor: pointer;
+      width: min(50%, 250px);
+      border: none;
+      color: #fff;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  &__link {
+    @include fs-14;
+    @include set-hover {
+      text-decoration: underline;
+    }
+    width: fit-content;
+    margin: 20px auto 0;
+  }
+}
