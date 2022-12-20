@@ -129,6 +129,14 @@ $breakpoints: (
           left: -1.2em;
         }
       }
+      &.favorite {
+        @include set-before("ico_heart.webp") {
+          width: 15px;
+          height: 15px;
+          top: calc(50% - 15px / 2);
+          left: -1.2em;
+        }
+      }
     }
   }
   &__link {
@@ -176,6 +184,18 @@ $breakpoints: (
   margin: 0;
 }
 
+/* pagination */
+.pagination {
+  @include fs-14;
+  margin-top: 30px;
+  column-gap: 15px;
+  span.page {
+    &.current {
+      text-decoration: underline;
+    }
+  }
+}
+
 /* main */
 .main {
   padding: 20px 0;
@@ -201,6 +221,12 @@ $breakpoints: (
     @include fs-12;
     @include fw;
     margin: 10px 0 15px;
+  }
+  &__link {
+    @include set-hover {
+      text-decoration: underline;
+    }
+    color: #2a59db;
   }
 }
 

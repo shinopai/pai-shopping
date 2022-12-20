@@ -1,0 +1,11 @@
+<ul class="side-list">
+  <% @categories.each do |category| %>
+  <li class="side-list__item"><%= category.name %>
+    <ul class="side-list--sub">
+      <% category.sub_categories.each do |sub| %>
+      <li class="side-list__item--sub"><%= link_to sub.name, get_items_by_category_path(category), class: 'side-list__link' %></li>
+      <% end %>
+    </ul>
+  </li>
+  <% end %>
+</ul>

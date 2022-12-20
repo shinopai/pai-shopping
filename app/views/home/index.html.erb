@@ -3,17 +3,8 @@
 <main class="main">
   <div class="wrap">
     <div class="main__inner flex">
-      <ul class="side-list">
-        <% @categories.each do |category| %>
-        <li class="side-list__item"><%= category.name %>
-          <ul class="side-list--sub">
-            <% category.sub_categories.each do |sub| %>
-            <li class="side-list__item--sub"><%= sub.name %></li>
-            <% end %>
-          </ul>
-        </li>
-        <% end %>
-      </ul>
+      <!-- side list -->
+      <%= render partial: 'shared/side_list', locals: { categories: @categories } %>
       <div class="main__body">
         <!-- おすすめの商品 -->
         <section class="sect">
@@ -34,7 +25,7 @@
         <!-- 新着商品 -->
         <section class="sect new">
           <h2 class="sect__heading">新着商品</h2>
-          <div class="list new flex">
+          <div class="list small flex">
             <% @new_items.each do |item| %>
             <%= link_to '#', class: 'contents' do %>
             <figure class="list__item">

@@ -14,4 +14,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  # search item
+  get '/search', to: 'items#search', as: :search_items
+
+  # get all items by category
+  get '/category/:id', to: 'items#get_items_by_category', as: :get_items_by_category
 end

@@ -7,10 +7,10 @@
           <%= image_tag 'logo_site.webp' %>
         </h1>
         <% end %>
-        <form action="" method="get" class="header__form flex">
-          <input type="text" name="" id="" class="header__form-input">
-          <input type="submit" value="" class="header__form-input--submit">
-        </form>
+        <%= search_form_for @q, url: search_items_path, class: 'header__form flex' do |search| %>
+        <%= search.search_field :name_cont, class: 'header__form-input' %>
+        <%= search.submit '', class: 'header__form-input--submit' %>
+        <% end %>
       </div>
       <div class="header__item--after">
         <ul class="header__list flex">
@@ -18,7 +18,7 @@
           <li class="header__list-item mypage">
             <%= link_to 'マイページ', '#', class: 'header__link' %>
           </li>
-          <li class="header__list-item">
+          <li class="header__list-item favorite">
             <%= link_to 'お気に入り', '#', class: 'header__link' %>
           </li>
           <% else %>

@@ -1,0 +1,28 @@
+<%= render partial: 'shared/page_title', locals: { page_title: params[:q][:name_cont] + 'の検索結果' } %>
+
+<main class="main">
+  <div class="wrap">
+    <div class="main__inner flex">
+      <!-- side list -->
+      <%= render partial: 'shared/side_list', locals: { categories: @categories } %>
+      <div class="main__body">
+        <!-- 検索結果 -->
+        <section class="sect">
+          <h2 class="sect__heading">「<%= params[:q][:name_cont] %>」の検索結果(<%= @items.total_count %>)</h2>
+          <div class="list small flex">
+            <% @items.each do |item| %>
+            <%= link_to '#', class: 'contents' do %>
+            <figure class="list__item">
+              <%= image_tag 'img_item.webp' %>
+              <figcaption><%= item.name %></figcaption>
+              <p>&#165;<%= item.price %></p>
+            </figure>
+            <% end %>
+            <% end %>
+          </div>
+          <%= paginate @items %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
