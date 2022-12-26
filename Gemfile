@@ -96,3 +96,9 @@ gem 'pry-rails'
 
 # management screen
 gem 'activeadmin'
+
+# favorite function
+gem 'socialization'
+
+# shopping cart
+gem 'acts_as_shopping_cart'

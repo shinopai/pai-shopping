@@ -1,0 +1,35 @@
+<%= render partial: 'shared/page_title', locals: { page_title: @item.name } %>
+
+<div class="wrap">
+  <div class="detail">
+    <div class="detail__upper flex">
+      <div class="detail__img">
+        <%= image_tag 'img_item.webp' %>
+      </div>
+      <div class="detail__data">
+        <h2 class="detail__name"><%= @item.name %></h2>
+        <p class="detail__cat"><%= @item.sub_category.name %></p>
+        <p class="detail__price">&#165;<%= @item.price %></p>
+        <div class="detail__btns flex">
+          <% if check_quantity(@item.quantity) %>
+          <%= form_tag add_item_path(@item) do %>
+          <label for="quantity" class="detail__label">数量:</label><br>
+          <%= select_tag :quantity, options_for_select(@item.quantity.times.map { |i| i + 1 }.to_a), class: 'detail__select' %><br>
+          <input type="submit" value="カートに追加する" class="detail__btn cart">
+          <% end %>
+          <% else %>
+          <p class="detail__txt">在庫なし</p>
+          <% end %>
+          <% if current_user.likes?(@item) %>
+          <%= button_to 'お気に入りを解除', favorite_item_path(@item), class: 'detail__btn favorite' %>
+          <% else %>
+          <%= button_to 'お気に入りに追加', favorite_item_path(@item), class: 'detail__btn favorite' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="detail__lower">
+      <h3 class="detail__heading">カスタマーレビュー</h3>
+    </div>
+  </div>
+</div>

@@ -11,7 +11,7 @@
   Item.create!(
     name: Faker::Artist.name,
     description: Faker::Quote.famous_last_words,
-    price: Faker::Number.between(from: 300, to: 999999),
+    price: Faker::Number.between(from: 300, to: 9999),
     item_image: 'img_item.webp',
     quantity: Faker::Number.between(from: 1, to: 10),
     sub_category_id: rand(1..SubCategory.count)

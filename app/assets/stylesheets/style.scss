@@ -6,7 +6,7 @@
   column-gap: 15px;
   &__item {
     img {
-      border: 1px solid #e3e2e2;
+      border: 1px solid $color-gray;
       padding: 5px;
     }
     figcaption {
@@ -73,5 +73,192 @@
     }
     width: fit-content;
     margin: 20px auto 0;
+  }
+}
+
+/* item detail */
+.detail {
+  width: min(70%, 800px);
+  margin: 30px auto 0;
+  &__upper {
+    border-bottom: 1px solid $color-gray;
+    padding-bottom: 20px;
+  }
+  &__img {
+    width: 40%;
+  }
+  &__data {
+    width: 60%;
+    padding-left: 20px;
+  }
+  &__name {
+    @include fs-20;
+    margin: 0;
+  }
+  &__cat {
+    @include fs-12;
+    margin: 0;
+  }
+  &__price {
+    @include fs-15;
+    @include fw(700);
+    margin-top: 25px;
+  }
+  &__btns {
+    column-gap: 15px;
+    align-items: flex-end;
+  }
+  &__label {
+    @include fs-12;
+  }
+  &__select {
+    @include fs-14;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100px;
+  }
+  &__txt {
+    @include fs-14;
+    color: #eb0000;
+  }
+  &__btn {
+    @include fs-14;
+    @include fw(700);
+    width: 210px;
+    cursor: pointer;
+    &.favorite {
+      @include set-before("ico_heart_green.webp") {
+        width: 15px;
+        height: 15px;
+        left: 1.5em;
+        top: calc(50% - 15px / 2);
+      }
+      border: 1px solid $color-green;
+      color: $color-green;
+      background-color: #fff;
+      padding: 5px 0;
+    }
+    &.cart {
+      color: #fff;
+      background-color: $color-green;
+      border: none;
+      padding: 6px 0;
+    }
+  }
+  &__heading {
+    @include fs-15;
+  }
+}
+
+/* cart detail */
+.cart-detail {
+  width: min(70%, 800px);
+  margin: 30px auto 0;
+  border-spacing: 0;
+  &__title {
+    @include fs-20;
+    @include fw(700);
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  thead {
+    th {
+      @include fs-14;
+      border-bottom: 2px solid $color-gray;
+      padding-bottom: 15px;
+      &:first-of-type {
+        width: 70%;
+      }
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        width: 15%;
+      }
+    }
+  }
+  tbody {
+    td {
+      @include fs-12;
+      @include fw(700);
+      text-align: center;
+      padding: 15px 5px;
+      border-bottom: 2px solid $color-gray;
+      &.flex {
+        column-gap: 15px;
+        img {
+          width: 120px;
+        }
+      }
+    }
+  }
+  tfoot {
+    th {
+      @include fs-14;
+      padding-top: 15px;
+    }
+    td {
+      @include fs-14;
+      @include fw(700);
+      text-align: center;
+      padding-top: 15px;
+    }
+  }
+  &__lower {
+    width: min(70%, 800px);
+    margin: 30px auto 0;
+  }
+  &__txt {
+    @include fs-12;
+    text-align: right;
+  }
+  &__btns {
+    @include fs-14;
+    margin-top: 15px;
+    column-gap: 25px;
+    justify-content: flex-end;
+  }
+  &__btn {
+    width: 120px;
+    text-align: center;
+    padding: 5px 0;
+    &.continue {
+      border: 2px solid $color-gray;
+    }
+    &.buy {
+      @include fs-14;
+      @include fw(700);
+      border: none;
+      padding: 7px 0;
+      background-color: $color-green;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+/* thanks page */
+.thanks {
+  width: min(50%, 600px);
+  margin: 0 auto;
+  border: 1px solid #06bfa0;
+  border-radius: 5px;
+  padding: 20px;
+  &__txt {
+    @include fs-20;
+    @include fw(700);
+    @include set-before("ico_check.webp") {
+      width: 30px;
+      height: 30px;
+      left: -1em;
+      top: calc(50% - 30px / 2);
+    }
+    color: $color-green;
+    padding-left: 10px;
+  }
+  &__btn {
+    @include fs-14;
+    background-color: $color-gray;
+    width: 120px;
+    text-align: center;
+    padding: 5px 0;
   }
 }

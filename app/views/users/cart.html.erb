@@ -1,0 +1,40 @@
+<%= render partial: 'shared/page_title', locals: { page_title: @user.name + 'さんのカート' } %>
+
+<div class="wrap">
+  <table class="cart-detail">
+    <caption class="cart-detail__title">ショッピングカート</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <th>数量</th>
+        <th>合計</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |item| %>
+      <tr>
+        <td class="flex">
+          <%= image_tag item.item.item_image %>
+          <h2><%= item.item.name %></h2>
+        </td>
+        <td><%= item.quantity %></td>
+        <td><%= number_to_currency(get_subtotal(item.price_cents, item.quantity), :unit => "￥", :format => "%u%n", :locale => "ja") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td></td>
+        <th>合計</th>
+        <td><%= number_to_currency(get_total(@cart_items), :unit => '￥', :format => "%u%n", :locale => "ja") %></td>
+      </tr>
+    </tfoot>
+  </table>
+  <div class="cart-detail__lower">
+    <p class="cart-detail__txt">表示価格は税込みです</p>
+    <div class="cart-detail__btns flex">
+      <%= link_to '買い物を続ける', root_path, class: 'cart-detail__btn continue' %>
+      <%= button_to '購入を確定する', confirm_order_path(@user.cart), class: 'cart-detail__btn buy' %>
+    </div>
+  </div>
+</div>

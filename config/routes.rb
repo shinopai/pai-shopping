@@ -20,4 +20,22 @@ Rails.application.routes.draw do
 
   # get all items by category
   get '/category/:id', to: 'items#get_items_by_category', as: :get_items_by_category
+
+  # show item detail
+  get '/items/:id', to: 'items#show', as: :show_item
+
+  # favorite item
+  post '/items/:id/favorite', to: 'items#favorite', as: :favorite_item
+
+  # add item to cart
+  post '/items/:id/add-cart', to: 'items#add_item', as: :add_item
+
+  # show cart detail
+  get '/users/:id/cart', to: 'users#show_cart', as: :user_cart
+
+  # confirm order
+  post '/users/:id/confirm-order', to: 'users#confirm_order', as: :confirm_order
+
+  # thanks page(order complete)
+  get '/thanks', to: 'home#thanks', as: :thanks
 end

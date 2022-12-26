@@ -1,0 +1,8 @@
+jp:
+  number:
+    currency:
+      format:
+        unit: "￥"
+        format: "%u%n"
+        negative_format: "-%n%u"
+        precision: 0

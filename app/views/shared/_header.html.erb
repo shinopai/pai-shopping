@@ -21,6 +21,9 @@
           <li class="header__list-item favorite">
             <%= link_to 'お気に入り', '#', class: 'header__link' %>
           </li>
+          <li class="header__list-item cart">
+            <%= link_to 'カート', user_cart_path(current_user), class: 'header__link' %>
+          </li>
           <% else %>
           <li class="header__list-item">
             <%= link_to '新規登録', new_user_registration_path, class: 'header__link' %>

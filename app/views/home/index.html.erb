@@ -11,7 +11,7 @@
           <h2 class="sect__heading">おすすめの商品</h2>
           <div class="list flex">
             <% @recommend_items.each do |item| %>
-            <%= link_to '#', class: 'contents' do %>
+            <%= link_to show_item_path(item), class: 'contents' do %>
             <figure class="list__item">
               <%= image_tag 'img_item.webp' %>
               <figcaption><%= item.name %></figcaption>
@@ -27,7 +27,7 @@
           <h2 class="sect__heading">新着商品</h2>
           <div class="list small flex">
             <% @new_items.each do |item| %>
-            <%= link_to '#', class: 'contents' do %>
+            <%= link_to show_item_path(item), class: 'contents' do %>
             <figure class="list__item">
               <%= image_tag 'img_item.webp' %>
               <figcaption><%= item.name %></figcaption>
