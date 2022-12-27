@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_26_015417) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_26_084339) do
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -114,6 +114,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_26_015417) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.text "body", null: false
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_reviews_on_item_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "sub_categories", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "category_id", null: false
@@ -140,5 +150,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_26_015417) do
   add_foreign_key "items", "sub_categories"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
+  add_foreign_key "reviews", "items"
+  add_foreign_key "reviews", "users"
   add_foreign_key "sub_categories", "categories"
 end

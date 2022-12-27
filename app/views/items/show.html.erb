@@ -28,8 +28,24 @@
         </div>
       </div>
     </div>
+    <% if user_signed_in? %>
     <div class="detail__lower">
-      <h3 class="detail__heading">カスタマーレビュー</h3>
+      <h3 class="detail__heading">カスタマーレビュー(<%= @item.reviews.size %>)</h3>
+      <div class="detail__review flex">
+        <ul class="detail__list">
+          <% @item.reviews.each do |review| %>
+          <li class="detail__list-item">
+            <%= review.body %>&nbsp;/&nbsp;投稿者:<%= review.user.name %>
+          </li>
+          <% end %>
+        </ul>
+        <%= form_with model: @review, url: review_item_path(current_user, @item), class: 'detail__form', local: true do |new_review| %>
+        <%= render 'shared/error_messages', model: new_review.object %>
+        <%= new_review.text_area :body, class: 'detail__form-textarea', rows: 5 %>
+        <%= new_review.submit 'レビューを追加する', class: 'detail__form-submit' %>
+        <% end %>
+      </div>
     </div>
+    <% end %>
   </div>
 </div>

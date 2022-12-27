@@ -38,4 +38,7 @@ Rails.application.routes.draw do
 
   # thanks page(order complete)
   get '/thanks', to: 'home#thanks', as: :thanks
+
+  # review
+  post 'users/:id/items/:item_id/review', to: 'reviews#review', as: :review_item
 end

@@ -148,6 +148,34 @@
   &__heading {
     @include fs-15;
   }
+  &__review {
+    justify-content: space-between;
+  }
+  &__list {
+    @include fs-14;
+    width: 60%;
+    &-item {
+      margin-bottom: 5px;
+    }
+  }
+  &__form {
+    width: 35%;
+    &-textarea {
+      @include fs-14;
+      width: 100%;
+      resize: none;
+      padding: 10px;
+    }
+    &-submit {
+      @include fs-12;
+      @include fw(700);
+      background-color: $color-green;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
 }
 
 /* cart detail */
